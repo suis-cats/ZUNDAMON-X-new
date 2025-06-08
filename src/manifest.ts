@@ -10,12 +10,11 @@ const manifest: ManifestV3Export = {
       matches: ['*://*.youtube.com/*'],
       js: ['src/content/index.tsx'],
     },
-  ],
-  permissions: ['storage', 'tabs', 'activeTab', 'scripting'],
+  ],  permissions: ['storage', 'tabs', 'activeTab', 'scripting'],
   background: {
     service_worker: 'src/background/index.ts',
   },
-  host_permissions: ['<all_urls>'],
+  host_permissions: ['<all_urls>', 'http://localhost:*/*', 'http://127.0.0.1:*/*'],
   options_ui: {
     page: 'src/options/options.html',
     open_in_tab: true,

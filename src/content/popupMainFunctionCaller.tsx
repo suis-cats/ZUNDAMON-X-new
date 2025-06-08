@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { Card, Metric } from '@tremor/react';
 import { useRecoilValue } from 'recoil';
 
-import { audioDataState } from '../atom';
+import { audioDataState, voiceVoxLocalModeState } from '../atom';
 import { getPlaybackStatus, getVideoCurrentTime } from '../background/getVideoCurrentTime';
 import useGetVideoId from '../background/useGetVideoId';
 import AudioAnalyzer from '../popup/AudioAnalyzer';
@@ -28,16 +28,16 @@ const MainFunctionCaller = () => {
   const [currentAudioFile, setCurrentAudioFile] = useState<File | null>(null);
   const [getrangeTS, setGetrangeTS] = useState<getTranscriptResponseType[]>([]);
   const [TSdisplay, setTSdisplay] = useState<getTranscriptResponseType[]>([]);
-
   const [createdAudioIndex, setCreatedAudioIndex] = useState<number[]>([]);
   const [wishList, setWishList] = useState<number[]>([]);
   const getAudioTime = 1000; //音声データの取得間隔
   const audioData = useRecoilValue(audioDataState);
+  // VoiceVox mode state
+  const isLocalMode = useRecoilValue(voiceVoxLocalModeState);
 
   //use in tailwind css
   const [isChecked, setIsChecked] = useState(true); //toggle1
-  const [isChecked2, setIsChecked2] = useState(true); //toggle2
-  const [isOpen, setIsOpen] = useState(false); //ログの表示
+  const [isChecked2, setIsChecked2] = useState(true); //toggle2  const [isOpen, setIsOpen] = useState(false); //ログの表示
 
   //* VideoIDを取得｜オブジェクトの生成
   const video: videoidtype = useGetVideoId();
@@ -260,15 +260,14 @@ const MainFunctionCaller = () => {
             <div className="flex-shrink-0 mt-4">
               <p>-----------------------------------------</p>
             </div>
-          </div>
-
-          <div className="log">
+          </div>          <div className="log">
             <p className="pb-2">統計情報</p>
             <p>VideoID：{video.videoId ? video.videoId : ''}</p>
             <p>現在時刻-20：{(currentTime - 20).toFixed(3)}</p>
             <p>現在時刻：{currentTime.toFixed(3)}</p>
             <p>現在時刻+20：{(currentTime + 20).toFixed(3)}</p>
             <p>再生状況：{playbackStatus ? '停止中' : '再生中'}</p>
+            <p>VoiceVoxモード：{isLocalMode ? 'Local' : 'GCP'}</p>
           </div>
 
           <div>
