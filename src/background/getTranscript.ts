@@ -9,15 +9,11 @@ export const getTranscript = () =>
   chrome.runtime.onMessage.addListener(async (request) => {
     console.log('メッセージを受け取ります', request);
     if (request.name === 'getTranscript') {
-      await fetch(
-        `https://asia-northeast1-zundamon-x.cloudfunctions.net/transcript-proxy?videoId=` +
-          request.videoId,
-        {
-          method: 'GET',
-          headers: { 'Access-Control-Allow-Origin': '*' },
-          // withCredentials: true,
-        }
-      )
+      await fetch(`http://127.0.0.1:8000/transcript/?id=` + request.videoId, {
+        method: 'GET',
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        // withCredentials: true,
+      })
         .then((json) => {
           return json.json();
         })
