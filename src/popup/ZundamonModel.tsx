@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { emotionType } from '../types';
+import { emotionType } from '../types_ui';
 import character_image_path from '../character_image_path.json';
 import { is } from 'date-fns/locale';
 type Props = {

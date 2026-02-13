@@ -1,10 +1,10 @@
 // getTranscript.ts
 import axios from 'axios';
-import { videoidtype } from '../../types';
+import { getTranscriptResponseType, videoidtype } from '../../types_ui';
 
 async function getTranscript({ videoId }: videoidtype) {
   //字幕APIアクセスURL
-  //http://127.0.0.1:8000/transcript/?id=wdvclbIHfHk
+  //http://127.00.1:8000/transcript/?id=wdvclbIHfHk
 
   /*
   //GCPアクセス字幕API

@@ -1,4 +1,4 @@
-import { emotionType } from '../../types';
+import { emotionType } from '../../types_ui';
 
 export const getEmotionType = (text: string): Promise<emotionType> => {
   const body = {

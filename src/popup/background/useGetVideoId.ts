@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { videoidtype } from '../../types';
+import { videoidtype } from '../../types_ui';
 
 //カスタムフックを使用
 function useGetVideoId() {

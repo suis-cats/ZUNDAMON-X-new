@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { selectedCharacterState, selectedIdState, selectedStyleState } from './../atom';
+import { selectedCharacterState, selectedIdState, selectedStyleState } from './../atom_ui';
 import voiceStyleData from './../voice_style_data.json';
-import { VoiceStyles } from '../types';
+import { VoiceStyles } from '../types_ui';
 import characterImages from './../character_image_path.json';
 
 const CharacterSelector = () => {

@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import { useRecoilValue } from 'recoil';
-import { audioDataState, emotionTypeAtom } from '../atom';
+import { audioDataState, emotionTypeAtom } from '../atom_ui';
 import ZundamonModel from './ZundamonModel';
-import { emotionType } from '../types';
+import { emotionType } from '../types_ui';
 
 const AudioAnalyzer = () => {
   // const [isMouseOpen, setIsMouseOpen] = useState(false);

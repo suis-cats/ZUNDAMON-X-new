@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useGetVideoStatus } from './useGetVideoStatus';
 import useGetVideoId from '../background/useGetVideoId';
 import { useGetTranscript } from './useGetTranscript';
-import { getTranscriptResponseType, isGetTranscriptResponseTypeArray } from '../types';
+import { getTranscriptResponseType, isGetTranscriptResponseTypeArray } from '../types_ui';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { audioDataState, emotionTypeAtom, selectedIdState } from '../atom';
+import { audioDataState, emotionTypeAtom, selectedIdState } from '../atom_ui';
 import { getEmotionType } from './features/getEmotionType';
 
 // 何秒前から音声データを取得するか

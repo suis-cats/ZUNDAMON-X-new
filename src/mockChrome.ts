@@ -1,4 +1,5 @@
 // Mock chrome API for browser preview
+// @ts-nocheck
 if (typeof chrome === 'undefined' || !chrome.runtime) {
   const store: Record<string, any> = {
     selectedId: 1,
@@ -20,7 +21,8 @@ if (typeof chrome === 'undefined' || !chrome.runtime) {
         get: (keys: string | string[], callback: (items: any) => void) => {
           console.log('Mock: storage.get', keys);
           if (typeof keys === 'string') {
-            callback({ [keys]: store[keys] });
+            const val = store[keys];
+            callback({ [keys]: val });
           } else if (Array.isArray(keys)) {
             const result: Record<string, any> = {};
             keys.forEach((k) => (result[k] = store[k]));
@@ -38,3 +40,5 @@ if (typeof chrome === 'undefined' || !chrome.runtime) {
     },
   };
 }
+
+export {};

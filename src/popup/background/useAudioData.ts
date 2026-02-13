@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { audioDataObject } from '../../types';
+import { audioDataObject } from '../../types_ui';
 
 const useAudioData = () => {
   const [audioData, setAudioData] = useState<audioDataObject>({});
 
   const getAudio = (subtitle: string, start: number) => {
-    fetch('http://127.0.0.1:8000/voice?message=' + subtitle)
+    fetch('https://asia-northeast1-zundamon-x.cloudfunctions.net/zundamon-api-proxy/voice?message=' + subtitle)
       .then((res: Response) => {
         return res.arrayBuffer();
       })

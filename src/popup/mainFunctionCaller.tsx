@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { set } from 'lodash';
-import { getTranscriptResponseType, isGetTranscriptResponseTypeArray, videoidtype } from '../types';
+import { getTranscriptResponseType, isGetTranscriptResponseTypeArray, videoidtype } from '../types_ui';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { audioDataState, emotionTypeAtom, selectedIdState } from '../atom_ui';
 import { Card, Metric } from '@tremor/react';
 import AudioAnalyzer from '../popup/AudioAnalyzer';
 
