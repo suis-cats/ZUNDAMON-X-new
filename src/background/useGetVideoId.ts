@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import { videoidtype } from '../types';
-
-//* videoIDの取得
+//カスタムフックを使用
 function useGetVideoId() {
-  const [url, setUrl] = useState<string>();
-  const [videoIdInfo, setVideoIdInfo] = useState<videoidtype>({ videoId: '' });
+  const [videoId, setVideoId] = useState('');
 
   useEffect(() => {
     const unsubscribe = setInterval(() => {
+      // Query for the active tab in the current window
+      // chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      //   const url = tabs[0].url;
+      //   console.log('url is', url);
+
       const url = window.location.href;
-      console.log('url is', url);
-      setUrl(url);
       const videoId = url?.split('v=')[1]?.split('&')[0];
       if (typeof videoId === 'string') {
-        setVideoIdInfo({ videoId: videoId }); // Update the whole object
+        setVideoId(videoId); // Update the whole object
       }
       // });
     }, 1000);
@@ -24,7 +24,8 @@ function useGetVideoId() {
     };
   }, []);
 
-  return videoIdInfo;
+  //console.log(videoIdInfo);
+  return { videoId: videoId };
 }
 
 export default useGetVideoId;

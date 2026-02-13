@@ -24,9 +24,9 @@ export const getVideoCurrentTime = () => {
     const video = document.getElementsByTagName('video')[0];
     return video?.currentTime;
   };
-  return videoCurrentTime();
-  // return scripting(videoCurrentTime);
+  return scripting(videoCurrentTime);
 };
+
 
 /* 現在の再生状態を取得 */
 export const getPlaybackStatus = () => {
@@ -34,6 +34,5 @@ export const getPlaybackStatus = () => {
     const video = document.getElementsByTagName('video')[0];
     return video?.paused;
   };
-  return playbackStatus();
-  // return scripting(playbackStatus);
+  return scripting(playbackStatus);
 };

@@ -1,13 +1,15 @@
 import React, { ReactElement } from 'react';
 
-import MainFunctionCaller from '../content/popupMainFunctionCaller';
-
 import AudioAnalyzer from './AudioAnalyzer';
-import AudioAnalyzerTest from './AudioAnalyzerTest';
+import MainFunctionCaller from './mainFunctionCaller';
 
 const Popup = (): ReactElement => {
   document.body.style.width = '18rem';
-  document.body.style.height = '10rem';
+  document.body.style.height = '15rem';
+
+  const openOptionsPage = () => {
+    chrome.runtime.openOptionsPage(); //Chrome拡張のオプションページに遷移
+  };
 
   return (
     <div className="h-screen items-center justify-center">

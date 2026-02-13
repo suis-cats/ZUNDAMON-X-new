@@ -1,13 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { RecoilRoot } from 'recoil';
-import '../tailwind.css';
+import '../mockChrome'; // Inject mock for browser preview
+
 import Popup from './Popup';
+
+import '../tailwind.css';
+
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RecoilRoot>
-      <Popup />
-    </RecoilRoot>
+    <Popup />
   </React.StrictMode>
 );
